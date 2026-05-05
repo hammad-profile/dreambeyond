@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dream Beyond — Serious modern system
+   White canvas · Electric blue accent · Dark grey ink · Sans-serif only.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 14%;          /* dark grey */
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 14%;
+
+    --primary: 220 13% 14%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 14%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 42%;
+
+    /* Brand */
+    --brand-blue: 220 90% 52%;
+    --brand-blue-soft: 220 90% 96%;
+    --brand-blue-deep: 220 90% 42%;
+
+    --accent: 220 90% 52%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 220 90% 96%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 90% 52%;
+
+    --radius: 0.75rem;
+
+    /* Dark grey surfaces (footer / inverted CTA) */
+    --ink: 220 13% 11%;
+    --ink-soft: 220 13% 16%;
+    --ink-elev: 220 13% 22%;
+    --ivory: 0 0% 98%;
+    --ivory-dim: 220 9% 65%;
+    --rule: 220 13% 24%;
+
+    /* Gradients (blue tones only) */
+    --gradient-brand: linear-gradient(120deg, hsl(var(--brand-blue-deep)) 0%, hsl(var(--brand-blue)) 50%, hsl(210 95% 62%) 100%);
+    --gradient-brand-soft: linear-gradient(120deg, hsl(var(--brand-blue) / 0.10), hsl(var(--brand-blue) / 0.02));
+    --gradient-radial: radial-gradient(circle at 30% 20%, hsl(var(--brand-blue) / 0.18), transparent 50%), radial-gradient(circle at 80% 80%, hsl(var(--brand-blue) / 0.10), transparent 55%);
+    --shadow-soft: 0 1px 2px hsl(220 13% 14% / 0.04), 0 12px 40px -16px hsl(220 13% 14% / 0.10);
+    --shadow-glow: 0 20px 60px -20px hsl(var(--brand-blue) / 0.45);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 13% 14%;
+    --sidebar-primary: 220 13% 14%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 13% 14%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 220 90% 52%;
+  }
+
+  .dark {
+    --background: 220 13% 8%;
+    --foreground: 0 0% 98%;
+    --card: 220 13% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 13% 11%;
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 220 90% 58%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 220 90% 58%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Geist', 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+    letter-spacing: -0.005em;
+  }
+  ::selection { background: hsl(var(--brand-blue) / 0.25); color: hsl(var(--foreground)); }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Geist', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+  .font-mono-cue { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  .surface-ink { background-color: hsl(var(--ink)); color: hsl(var(--ivory)); }
+  .surface-ink-soft { background-color: hsl(var(--ink-soft)); color: hsl(var(--ivory)); }
+  .text-ivory { color: hsl(var(--ivory)); }
+  .text-ivory-dim { color: hsl(var(--ivory-dim)); }
+  .border-rule { border-color: hsl(var(--rule)); }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .label-eyebrow {
+    @apply font-mono-cue uppercase tracking-[0.18em] text-xs;
+  }
+
+  /* Brand gradient utilities */
+  .bg-gradient-brand { background-image: var(--gradient-brand); }
+  .bg-gradient-brand-soft { background-image: var(--gradient-brand-soft); }
+  .bg-gradient-radial { background-image: var(--gradient-radial); }
+  .text-gradient-brand {
+    background-image: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+
+  /* Animated gradient blob (blue only) */
+  .blob-blue {
+    background: radial-gradient(circle, hsl(var(--brand-blue) / 0.45), transparent 70%);
+    filter: blur(60px);
+  }
+  .blob-blue-deep {
+    background: radial-gradient(circle, hsl(var(--brand-blue-deep) / 0.35), transparent 70%);
+    filter: blur(70px);
+  }
+  .blob-grey {
+    background: radial-gradient(circle, hsl(var(--ink) / 0.18), transparent 70%);
+    filter: blur(70px);
+  }
+
+  .hover-lift {
+    transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, border-color .3s;
+  }
+  .hover-lift:hover { transform: translateY(-4px); }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size .35s ease;
+  }
+  .link-underline:hover { background-size: 0% 1px; background-position: 100% 100%; }
+
+  /* Noise overlay */
+  .noise::after {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: .035;
+    mix-blend-mode: multiply;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-20px) scale(1.05); }
+    66% { transform: translate(-20px,20px) scale(0.95); }
+  }
+  .animate-float { animation: float 18s ease-in-out infinite; }
+  .animate-float-slow { animation: float 28s ease-in-out infinite; }
+
+  @keyframes gradient-pan {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-pan 8s ease infinite;
+  }
+}
