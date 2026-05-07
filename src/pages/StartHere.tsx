@@ -1,15 +1,16 @@
 "use client";
 
+import '../styles/start-here.css';
 import { SiteLayout } from "@/components/site/SiteLayout";
 import Link from "next/link";
 
 const routes = [
-  { label: "I need a fractional CTO", to: "/fractional-cto", tag: "Consult" },
-  { label: "I need software built", to: "/custom-software", tag: "Build" },
-  { label: "I want to improve my team's use of AI", to: "/insights", tag: "Educate" },
+  { label: "I need advisory", to: "/advisory", tag: "Advisory" },
+  { label: "I need execution", to: "/execution", tag: "Execution" },
+  { label: "I want to improve my team's use of AI", to: "/education", tag: "Education" },
   { label: "I want to explore Stacket", to: "/products/stacket", tag: "Product" },
   { label: "I want to explore Restro", to: "/products/restro", tag: "Product" },
-  { label: "I want to learn from Ali", to: "/insights", tag: "Educate" },
+  { label: "I want to learn from Ali", to: "/education", tag: "Education" },
 ];
 
 const StartHere = () => (

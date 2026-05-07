@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Google+Sans+Flex:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,6 +10,11 @@
 
 @layer base {
   :root {
+    --font-heading: 'Google Sans Flex', 'Google Sans', 'Product Sans', system-ui, sans-serif;
+    --font-display: var(--font-heading);
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
     --background: 0 0% 100%;
     --foreground: 220 13% 14%;          /* dark grey */
 
@@ -97,20 +102,26 @@
   html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Geist', 'Inter', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-feature-settings: 'ss01', 'cv11';
     letter-spacing: -0.005em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  p {
+    font-family: var(--font-body);
   }
   ::selection { background: hsl(var(--brand-blue) / 0.25); color: hsl(var(--foreground)); }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Geist', 'Inter', system-ui, sans-serif;
+    font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: -0.035em;
   }
-  .font-mono-cue { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .font-mono-cue { font-family: var(--font-mono); }
 
   .surface-ink { background-color: hsl(var(--ink)); color: hsl(var(--ivory)); }
   .surface-ink-soft { background-color: hsl(var(--ink-soft)); color: hsl(var(--ivory)); }

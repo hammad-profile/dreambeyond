@@ -1,15 +1,16 @@
 "use client";
 
+import '../styles/fractional-cto.css';
 import { StubPage } from "@/components/site/StubPage";
 
 const FractionalCTO = () => (
   <StubPage
-    eyebrow="Consult — Fractional CTO"
+    eyebrow="Advisory"
     title={<>Leadership for businesses that need <em className="text-brand-blue">clarity</em> before they need more code.</>}
     intro="Get senior technology leadership without the cost and delay of a full-time CTO. Strategy, oversight, and judgment — applied where it matters."
     ctaLabel="Book a CTO strategy session"
-    secondaryLabel="See custom software"
-    secondaryTo="/custom-software"
+    secondaryLabel="See execution"
+    secondaryTo="/execution"
     blocks={[
       {
         kind: "list",

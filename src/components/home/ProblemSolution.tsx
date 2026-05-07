@@ -2,67 +2,102 @@
 
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/site/Primitives";
-import { AlertTriangle, ShieldCheck, Code2, Gauge } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  Code2,
+  Gauge,
+  ShieldCheck,
+} from "lucide-react";
 
-const cardIn = {
-  initial: { opacity: 0, y: 30 },
+const easeOut = [0.2, 0.8, 0.2, 1] as const;
+
+const reveal = {
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] as const },
+  transition: { duration: 0.7, ease: easeOut },
 };
 
+const problemCards = [
+  {
+    icon: AlertTriangle,
+    title: "AI code that crumbles at scale",
+    text: "Anyone can generate code now. But without proper architecture, it collapses the moment real users arrive.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security as an afterthought",
+    text: "AI doesn't think about attack vectors. Your customer data deserves better than a chatbot's best guess.",
+  },
+  {
+    icon: Code2,
+    title: "Disconnected tools bleeding money",
+    text: "Five tools doing five things. None talking to each other. Your decisions are only as fast as your slowest spreadsheet.",
+  },
+  {
+    icon: Gauge,
+    title: "Technical debt compounding daily",
+    text: "Quick fixes today become six-figure rewrites tomorrow. Every shortcut is a loan with brutal interest.",
+  },
+];
+
 export const Problem = () => (
-  <section className="relative py-28 md:py-40 bg-background overflow-hidden">
-    <div className="absolute top-1/2 left-0 w-96 h-96 blob-blue-deep opacity-40 -translate-y-1/2" />
-    <div className="container relative">
-      <div className="grid lg:grid-cols-12 gap-12">
-        <motion.div {...cardIn} className="lg:col-span-5">
-          <div className="sticky top-32">
-            <div className="inline-flex items-center gap-3 label-eyebrow text-muted-foreground">
-              <span className="w-2 h-2 rounded-full bg-brand-blue" />
-              01 · The Problem
-            </div>
-            <h2 className="font-display mt-6 text-5xl md:text-7xl leading-[1] tracking-tight text-balance">
-              AI made code <span className="text-gradient-brand">faster</span>. <br />
-              It did not make software <span className="relative inline-block">safer
-                <span className="absolute left-0 right-0 -bottom-1 h-1 bg-brand-blue rounded-full" /></span>.
-            </h2>
+  <section className="problem-section">
+    <div className="container problem-section__container">
+      <div className="problem-section__header">
+        <motion.div {...reveal}>
+          <div className="problem-section__eyebrow">
+            <span />
+            _THE_PROBLEM
           </div>
+
+          <h2 className="problem-section__title">
+            <span>The world is building fast.</span>
+            <span>It’s also building fragile.</span>
+          </h2>
         </motion.div>
 
-        <div className="lg:col-span-7 space-y-6">
-          <motion.p {...cardIn} className="text-xl text-muted-foreground leading-relaxed">
-            Today, features can be generated in hours. But weak architecture,
-            poor security, broken backend logic, and rushed decisions still
-            create expensive problems.
-          </motion.p>
-          <motion.p {...cardIn} transition={{ ...cardIn.transition, delay: 0.1 }} className="text-xl text-foreground leading-relaxed border-l-4 border-brand-blue pl-6">
-            That is where most teams struggle. Speed without judgment compounds
-            debt — until it cracks under real customers, real load, real audits.
-          </motion.p>
+        <motion.p
+          {...reveal}
+          transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
+          className="problem-section__intro"
+        >
+          AI is giving non-engineers the ability to write code. But nobody is
+          teaching them what breaks when it hits production.
+        </motion.p>
+      </div>
 
-          <div className="grid grid-cols-2 gap-4 pt-8">
-            {[
-              { icon: AlertTriangle, k: "Architecture", v: "Fragile foundations", color: "text-brand-blue" },
-              { icon: ShieldCheck, k: "Security", v: "Shipped untested", color: "text-brand-blue" },
-              { icon: Code2, k: "Backend", v: "Logic gaps", color: "text-brand-blue" },
-              { icon: Gauge, k: "Decisions", v: "Made too fast", color: "text-brand-blue" },
-            ].map(({ icon: Icon, k, v, color }, i) => (
-              <motion.div
-                key={k}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group p-6 rounded-2xl border border-border bg-card hover:border-foreground/30 hover-lift hover:shadow-soft"
-              >
-                <Icon className={`size-6 ${color}`} />
-                <div className="label-eyebrow text-muted-foreground mt-4">{k}</div>
-                <div className="mt-1 text-foreground font-medium">{v}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <div className="problem-section__cards">
+        {problemCards.map(({ icon: Icon, title, text }, index) => (
+          <motion.article
+            key={title}
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, delay: index * 0.08, ease: easeOut }}
+            className="problem-card"
+          >
+            <div className="problem-card__grid" aria-hidden="true" />
+
+            <div className="problem-card__icon">
+              <Icon size={21} />
+            </div>
+
+            <div className="problem-card__content">
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+
+            <div className="problem-card__footer">
+              <div className="problem-card__number">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+
+              <ArrowRight size={17} />
+            </div>
+          </motion.article>
+        ))}
       </div>
     </div>
   </section>
@@ -76,13 +111,20 @@ export const Solution = () => {
     "Build custom platforms for real operational needs.",
     "Get senior technical leadership without hiring a full-time CTO.",
   ];
+
   return (
     <section className="relative py-28 md:py-40 bg-secondary/40 overflow-hidden">
       <div className="absolute top-0 right-0 w-[40rem] h-[40rem] blob-blue opacity-50" />
+
       <div className="container relative">
         <SectionHeader
           eyebrow="02 · The Solution"
-          title={<>We bring <span className="text-gradient-brand">judgment</span> to modern software.</>}
+          title={
+            <>
+              We bring <span className="text-gradient-brand">judgment</span> to
+              modern software.
+            </>
+          }
           intro="Dream Beyond helps companies make the calls that matter — before they cost six figures to undo."
         />
 
@@ -97,14 +139,19 @@ export const Solution = () => {
               className="group relative bg-background rounded-2xl border border-border hover:border-transparent hover:shadow-soft transition-all overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-brand-soft opacity-0 group-hover:opacity-100 transition-opacity" />
+
               <div className="relative flex items-center gap-6 md:gap-10 py-7 md:py-8 px-6 md:px-8">
                 <span className="font-mono-cue text-xs font-medium text-muted-foreground w-10 shrink-0 group-hover:text-brand-blue transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
+
                 <span className="font-display text-2xl md:text-3xl text-foreground leading-snug text-balance flex-1">
                   {t}
                 </span>
-                <span className="size-10 rounded-full bg-secondary group-hover:bg-foreground group-hover:text-background flex items-center justify-center transition-all group-hover:rotate-[-45deg]">→</span>
+
+                <span className="size-10 rounded-full bg-secondary group-hover:bg-foreground group-hover:text-background flex items-center justify-center transition-all group-hover:rotate-[-45deg]">
+                  →
+                </span>
               </div>
             </motion.div>
           ))}

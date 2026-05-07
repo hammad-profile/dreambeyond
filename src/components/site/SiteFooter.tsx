@@ -28,19 +28,19 @@ export const SiteFooter = () => {
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
-            <FooterCol title="Consult" links={[
-              ["Fractional CTO", "/fractional-cto"],
-              ["Custom Software", "/custom-software"],
+            <FooterCol title="Advisory" links={[
+              ["Advisory", "/advisory"],
+              ["Execution", "/execution"],
               ["Start here", "/start"],
             ]} />
-            <FooterCol title="Build" links={[
+            <FooterCol title="Products" links={[
               ["Stacket", "/products/stacket"],
               ["Restro", "/products/restro"],
               ["Beyond AI", "/products/beyond-ai"],
             ]} />
-            <FooterCol title="Educate" links={[
-              ["Insights", "/insights"],
-              ["Case studies", "/case-studies"],
+            <FooterCol title="Education" links={[
+              ["Education", "/education"],
+              ["Case Studies", "/case-studies"],
               ["Contact", "/contact"],
             ]} />
           </div>

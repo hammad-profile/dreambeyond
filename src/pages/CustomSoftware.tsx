@@ -1,10 +1,11 @@
 "use client";
 
+import '../styles/custom-software.css';
 import { StubPage } from "@/components/site/StubPage";
 
 const CustomSoftware = () => (
   <StubPage
-    eyebrow="Build — Custom software & AI"
+    eyebrow="Execution"
     title={<>Custom software and AI systems, built with <em className="text-brand-blue">judgment</em>.</>}
     intro="Platforms, line-of-business applications, integrations, and AI agents — designed for real operations, not demo loops."
     secondaryLabel="See products we built"

@@ -1,5 +1,6 @@
 "use client";
 
+import '../../styles/product-detail.css';
 import { StubPage } from "@/components/site/StubPage";
 
 const Stacket = () => (

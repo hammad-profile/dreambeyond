@@ -1,10 +1,11 @@
 "use client";
 
+import '../styles/insights.css';
 import { StubPage } from "@/components/site/StubPage";
 
 const Insights = () => (
   <StubPage
-    eyebrow="Educate — Insights & learn"
+    eyebrow="Education"
     title={<>Learn software engineering in the AI era from someone who built through the <em className="text-brand-blue">hard parts</em>.</>}
     intro="Clear lessons on architecture, AI-assisted development, security, delivery, and technical leadership."
     ctaLabel="Get notified"

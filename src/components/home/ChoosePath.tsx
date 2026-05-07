@@ -2,88 +2,125 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Compass, Hammer, Package, GraduationCap, ArrowUpRight } from "lucide-react";
-import { SectionHeader } from "@/components/site/Primitives";
+import { ArrowRight, BookOpen, Code2, Compass, Layers3 } from "lucide-react";
+
+const easeOut = [0.2, 0.8, 0.2, 1] as const;
 
 const paths = [
   {
-    n: "01",
+    number: "01",
+    title: "Advisory",
+    text: "Get senior technology guidance before expensive mistakes slow you down.",
+    href: "/advisory",
     icon: Compass,
-    title: "Fractional CTO",
-    desc: "Technology strategy, architecture oversight, AI roadmap, team guidance.",
-    to: "/fractional-cto",
-    accent: "blue" as const,
+    label: "Advisory",
   },
   {
-    n: "02",
-    icon: Hammer,
-    title: "Custom Software & AI Systems",
-    desc: "Platforms, line-of-business apps, integrations, automation, AI agents.",
-    to: "/custom-software",
-    accent: "yellow" as const,
+    number: "02",
+    title: "Execution",
+    text: "We design and build software, AI tools, and integrations around real business problems.",
+    href: "/execution",
+    icon: Code2,
+    label: "Execution",
   },
   {
-    n: "03",
-    icon: Package,
+    number: "03",
     title: "Products",
-    desc: "Purpose-built software from Dream Beyond — including Stacket and Restro.",
-    to: "/products",
-    accent: "yellow" as const,
+    text: "Explore focused software products built by Dream Beyond for real operational needs.",
+    href: "/products",
+    icon: Layers3,
+    label: "Products",
   },
   {
-    n: "04",
-    icon: GraduationCap,
-    title: "Learn with Ali Kitabi",
-    desc: "Insights on AI, software architecture, product thinking, and tech leadership.",
-    to: "/insights",
-    accent: "blue" as const,
+    number: "04",
+    title: "Education",
+    text: "Practical lessons on AI, software architecture, and building technology the right way.",
+    href: "/education",
+    icon: BookOpen,
+    label: "Education",
   },
 ];
 
-export const ChoosePath = () => (
-  <section className="relative py-28 md:py-40 bg-background overflow-hidden">
-    <div className="container relative">
-      <SectionHeader
-        eyebrow="03 · Choose your path"
-        title={<>Four ways to work with <span className="text-gradient-brand">Dream Beyond</span>.</>}
-      />
+export const ChoosePath = () => {
+  return (
+    <section className="choose-path-section">
+      <div className="container choose-path-section__container">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          className="choose-path-section__header"
+        >
+          <div className="choose-path-section__eyebrow">
+            <span />
+            _CHOOSE_YOUR_PATH
+          </div>
 
-      <div className="mt-16 grid md:grid-cols-2 gap-6">
-        {paths.map((p, i) => (
-          <motion.div
-            key={p.n}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: i * 0.1, ease: [0.2, 0.8, 0.2, 1] }}
-          >
-            <Link
-              href={p.to}
-              className="group relative block p-8 md:p-10 rounded-3xl border border-border bg-card hover:border-foreground/20 hover-lift hover:shadow-soft overflow-hidden h-full"
-            >
-              {/* Hover gradient blob */}
-              <div className={`absolute -top-32 -right-32 w-72 h-72 rounded-full ${p.accent === "blue" ? "blob-blue" : "blob-blue-deep"} opacity-0 group-hover:opacity-80 transition-opacity duration-700`} />
+          <h2 className="choose-path-section__title">
+            <span>Ways to work with</span>
+            <span>Dream Beyond.</span>
+          </h2>
 
-              <div className="relative flex items-start justify-between">
-                <div className={`size-14 rounded-2xl flex items-center justify-center ${p.accent === "blue" ? "bg-brand-blue-soft text-brand-blue" : "bg-brand-blue-soft text-foreground"}`}>
-                  <p.icon className="size-6" />
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="font-mono-cue text-xs text-muted-foreground">{p.n}</span>
-                  <ArrowUpRight className="size-5 text-muted-foreground group-hover:text-foreground group-hover:rotate-45 transition-all duration-500" />
-                </div>
-              </div>
-              <h3 className="font-display text-3xl md:text-4xl text-foreground mt-8 leading-tight">
-                {p.title}
-              </h3>
-              <p className="mt-4 text-muted-foreground text-base leading-relaxed max-w-md">
-                {p.desc}
-              </p>
-              <div className="mt-8 h-px w-12 bg-gradient-brand group-hover:w-full transition-all duration-700" />
-            </Link>
-          </motion.div>
-        ))}
+          <p className="choose-path-section__intro">
+            Choose the level of help you need — from strategic guidance to full
+            software execution, products, and practical learning.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 34 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-70px" }}
+          transition={{ duration: 0.75, delay: 0.08, ease: easeOut }}
+          className="choose-path-panel"
+        >
+          <div className="choose-path-panel__rows">
+            {paths.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{
+                    duration: 0.55,
+                    delay: index * 0.06,
+                    ease: easeOut,
+                  }}
+                  className="choose-path-row"
+                >
+                  <Link href={item.href} className="choose-path-row__link">
+                    <div className="choose-path-row__meta">
+                      <span>{item.number}</span>
+                      <span>{item.label}</span>
+                    </div>
+
+                    <div className="choose-path-row__icon">
+                      <Icon size={21} strokeWidth={2.1} />
+                    </div>
+
+                    <h3>{item.title}</h3>
+
+                    <p>{item.text}</p>
+
+                    <div className="choose-path-row__arrow">
+                      <ArrowRight size={18} />
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <Link href="/start" className="choose-path-panel__footer">
+            Find the right path
+            <ArrowRight size={20} />
+          </Link>
+        </motion.div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+}; 

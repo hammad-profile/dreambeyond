@@ -2,79 +2,131 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { SectionHeader } from "@/components/site/Primitives";
+import {
+  ArrowRight,
+  Boxes,
+  UtensilsCrossed,
+  BrainCircuit,
+} from "lucide-react";
+
+const easeOut = [0.2, 0.8, 0.2, 1] as const;
 
 const products = [
   {
     name: "Stacket",
-    tag: "Operations · Inventory",
-    desc: "Warehouse and inventory software for 3PL and retail operations.",
-    to: "/products/stacket",
-    gradient: "from-brand-blue/30 via-brand-blue/10 to-transparent",
+    label: "Warehouse & 3PL Intelligence",
+    description:
+      "Unified operations platform for warehousing and third-party logistics companies. Real-time inventory, order management, and analytics in one system.",
+    href: "/products/stacket",
+    icon: Boxes,
   },
   {
     name: "Restro",
-    tag: "Hospitality · Catering",
-    desc: "Catering and restaurant operations technology for smoother ordering, invoicing, and fulfillment.",
-    to: "/products/restro",
-    gradient: "from-brand-blue/40 via-brand-blue/15 to-transparent",
+    label: "Restaurant Operations, Unified",
+    description:
+      "End-to-end platform for restaurants and food catering companies. From kitchen management to customer engagement to financial reporting.",
+    href: "/products/restro",
+    icon: UtensilsCrossed,
   },
   {
-    name: "Beyond AI Solutions",
-    tag: "AI · Workflow",
-    desc: "Specialized AI systems built around real workflows and business bottlenecks.",
-    to: "/products/beyond-ai",
-    gradient: "from-brand-blue/30 via-brand-blue/20 to-transparent",
+    name: "Seranova.ai",
+    label: "AI-Powered Reputation Intelligence",
+    description:
+      "Collects reviews, detects negative sentiment before it goes public, and helps hospitality, healthcare, and tech service companies protect their reputation.",
+    href: "/products/beyond-ai",
+    icon: BrainCircuit,
   },
 ];
 
-export const Products = () => (
-  <section className="py-28 md:py-40 bg-background">
-    <div className="container">
-      <div className="flex items-end justify-between flex-wrap gap-8">
-        <SectionHeader
-          eyebrow="05 · Products"
-          title={<>Software we built. Operating in <span className="text-gradient-brand">production</span>.</>}
-        />
-        <Link href="/products" className="link-underline text-sm font-medium pb-1">
-          View all products →
-        </Link>
-      </div>
-
-      <div className="mt-16 grid md:grid-cols-3 gap-6">
-        {products.map((p, i) => (
+export const Products = () => {
+  return (
+    <section className="db-products">
+      <div className="container db-products__container">
+        <div className="db-products__header">
           <motion.div
-            key={p.name}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: i * 0.12 }}
+            transition={{ duration: 0.7, ease: easeOut }}
           >
-            <Link
-              href={p.to}
-              className="group relative block bg-card border border-border rounded-3xl p-8 hover-lift hover:border-foreground/20 hover:shadow-soft transition-all overflow-hidden h-full"
-            >
-              <div className={`absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gradient-to-br ${p.gradient} blur-2xl opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700`} />
-              <div className="relative">
-                <div className="flex items-start justify-between">
-                  <span className="label-eyebrow text-muted-foreground">{p.tag}</span>
-                  <ArrowUpRight className="size-5 text-muted-foreground group-hover:text-foreground group-hover:rotate-45 transition-all duration-500" />
-                </div>
-                <h3 className="font-display text-5xl text-foreground mt-8 leading-tight">
-                  {p.name}
-                </h3>
-                <p className="mt-4 text-muted-foreground leading-relaxed min-h-[5rem]">
-                  {p.desc}
-                </p>
-                <div className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-foreground border-b border-foreground/30 pb-1 group-hover:border-foreground transition-colors">
-                  Explore product
-                </div>
-              </div>
+            <div className="db-products__eyebrow">
+              <span />
+              _OUR_PRODUCTS
+            </div>
+
+            <h2 className="db-products__title">
+              <span>Products built from</span>
+              <span>real business problems.</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
+            className="db-products__side"
+          >
+            <p className="db-products__intro">
+              Production-grade products built by Dream Beyond, serving real
+              businesses at scale.
+            </p>
+
+            <Link href="/products" className="db-products__view-link">
+              View all products
+              <ArrowRight size={17} />
             </Link>
           </motion.div>
-        ))}
+        </div>
+
+        <div className="db-products__cards">
+          {products.map((product, index) => {
+            const Icon = product.icon;
+
+            return (
+              <motion.article
+                key={product.name}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.55,
+                  delay: index * 0.08,
+                  ease: easeOut,
+                }}
+                className="db-product-card"
+              >
+                <Link href={product.href} className="db-product-card__link">
+                  <div className="db-product-card__grid" aria-hidden="true" />
+
+                  <div className="db-product-card__top">
+                    <div className="db-product-card__icon">
+                      <Icon size={22} strokeWidth={2.1} />
+                    </div>
+
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                  </div>
+
+                  <div className="db-product-card__body">
+                    <p className="db-product-card__label">{product.label}</p>
+
+                    <h3>{product.name}</h3>
+
+                    <p className="db-product-card__description">
+                      {product.description}
+                    </p>
+                  </div>
+
+                  <div className="db-product-card__footer">
+                    <span>Explore product</span>
+                    <ArrowRight size={17} />
+                  </div>
+                </Link>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

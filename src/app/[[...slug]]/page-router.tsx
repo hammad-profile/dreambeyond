@@ -29,17 +29,24 @@ import AIResumeSorter from "@/pages/case-studies/AIResumeSorter";
 import AIBusinessAnalyst from "@/pages/case-studies/AIBusinessAnalyst";
 import ATOM from "@/pages/case-studies/ATOM";
 import AgilityHealthReporter from "@/pages/case-studies/AgilityHealthReporter";
+import Education from "@/pages/Education";
+import Execution from "@/pages/Execution";
+import advisory from "@/pages/Advisory";
 
 const routes: Record<string, React.ComponentType> = {
   "/": Index,
+  
   "/fractional-cto": FractionalCTO,
   "/custom-software": CustomSoftware,
   "/products": Products,
   "/products/stacket": Stacket,
   "/products/restro": Restro,
   "/products/beyond-ai": BeyondAI,
+  "/education": Education,
   "/insights": Insights,
   "/case-studies": CaseStudies,
+  "/execution": Execution,
+  "/advisory": advisory,
   "/case-studies/stacket-lens-3pl-wms": StacketLens,
   "/case-studies/stacket-lens-mobile-app": StacketLensMobile,
   "/case-studies/stacket-ims-omni-channel-inventory-management-system": StacketIMS,

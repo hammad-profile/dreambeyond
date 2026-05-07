@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
-        sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Google Sans Flex', 'Google Sans', 'Product Sans', 'system-ui', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       colors: {

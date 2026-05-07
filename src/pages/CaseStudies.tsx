@@ -1,147 +1,316 @@
 "use client";
 
-import { CaseStudiesCard } from "@/components/CaseStudiesCard";
+import "../styles/case-studies.css";
+import { SiteLayout } from "@/components/site/SiteLayout";
 import { caseStudies } from "@/lib/caseStudiesData";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  BarChart3,
+  Layers3,
+  Network,
+  Search,
+} from "lucide-react";
+
+const easeOut = [0.2, 0.8, 0.2, 1] as const;
+
+const focusItems = [
+  {
+    icon: Search,
+    label: "Approach",
+    text: "Design systems that make high-volume business processes faster and easier to manage.",
+  },
+  {
+    icon: Network,
+    label: "Value",
+    text: "Clear, modern tools for operations, analytics, and cross-functional collaboration.",
+  },
+  {
+    icon: BarChart3,
+    label: "Impact",
+    text: "Better performance, fewer manual handoffs, and measurable process improvements.",
+  },
+];
 
 const CaseStudies = () => {
   const industries = Array.from(new Set(caseStudies.map((cs) => cs.industry)));
+  const featuredStudies = caseStudies.slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-background">
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),_transparent_30%)] pointer-events-none" />
-        <div className="absolute right-0 top-28 h-72 w-72 rounded-full bg-brand-blue/10 blur-3xl pointer-events-none" />
-        <div className="absolute left-0 top-44 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl pointer-events-none" />
-
-        <div className="container mx-auto px-4 md:px-6 relative">
-          <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr] items-end">
-            <div className="max-w-2xl space-y-6">
-              <p className="text-sm uppercase tracking-[0.28em] text-brand-blue font-semibold">
-                Proof — case studies
-              </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Work delivered across <span className="text-brand-blue">demanding</span> industries.
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                Real projects, real operational systems, real outcomes — grouped by domain. Explore modern operational design with clarity and confidence.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-border bg-card/95 p-8 shadow-soft backdrop-blur-xl">
-              <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-4">
-                Featured focus
-              </p>
-              <h2 className="text-2xl font-semibold text-foreground mb-5">
-                Modern execution for complex operations.
-              </h2>
-              <div className="space-y-4">
-                <div className="rounded-3xl bg-background/80 p-4 border border-border">
-                  <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Approach</p>
-                  <p className="mt-2 text-sm text-foreground">Design systems that make high-volume business processes faster and easier to manage.</p>
+    <SiteLayout>
+      <main className="case-studies-page">
+        <section className="case-studies-hero">
+          <div className="container case-studies-hero__container">
+            <div className="case-studies-hero__layout">
+              <motion.div
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: easeOut }}
+                className="case-studies-hero__copy"
+              >
+                <div className="case-studies-hero__eyebrow">
+                  <span />
+                  Proof — case studies
                 </div>
-                <div className="rounded-3xl bg-background/80 p-4 border border-border">
-                  <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Value</p>
-                  <p className="mt-2 text-sm text-foreground">Clear, modern tools for operations, analytics, and cross-functional collaboration.</p>
-                </div>
-                <div className="rounded-3xl bg-background/80 p-4 border border-border">
-                  <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Impact</p>
-                  <p className="mt-2 text-sm text-foreground">Better performance, fewer manual handoffs, and measurable process improvements.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-sm uppercase tracking-[0.24em] text-brand-blue mb-3">
-                Featured case studies
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Modern stories of enterprise transformation.
-              </h2>
-            </div>
-            <p className="max-w-xl text-sm text-muted-foreground">
-              Browse the case studies that show how we turn complex requirements into beautiful, usable systems.
-            </p>
-          </div>
+                <h1 className="case-studies-hero__title">
+                  <span>Work delivered across</span>
+                  <span>demanding industries.</span>
+                </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.map((caseStudy) => (
-              <CaseStudiesCard key={caseStudy.id} caseStudy={caseStudy} />
-            ))}
-          </div>
-        </div>
-      </section>
+                <p className="case-studies-hero__intro">
+                  Real projects, real operational systems, real outcomes —
+                  grouped by domain. Explore modern operational design with
+                  clarity and confidence.
+                </p>
+              </motion.div>
 
-      <section className="py-16 md:py-20 bg-muted/40">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Browse by industry
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-              Find the right case study by domain and view the stories that match your business needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => {
-              const studiesInIndustry = caseStudies.filter(
-                (cs) => cs.industry === industry
-              );
-              return (
+              <motion.aside
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
+                className="case-studies-hero__panel"
+              >
                 <div
-                  key={industry}
-                  className="rounded-[1.75rem] border border-border bg-card/90 p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="mb-5 flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold text-foreground">{industry}</h3>
-                    <span className="rounded-full bg-brand-blue/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue">
-                      {studiesInIndustry.length} stories
-                    </span>
-                  </div>
-                  <div className="grid gap-4">
-                    {studiesInIndustry.map((study) => (
-                      <Link
-                        key={study.id}
-                        href={`/case-studies/${study.slug}`}
-                        className="block rounded-3xl border border-border bg-background/80 px-4 py-3 text-sm font-medium text-foreground transition hover:bg-brand-blue/5"
-                      >
-                        {study.title}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                  className="case-studies-hero__panel-grid"
+                  aria-hidden="true"
+                />
 
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <div className="mx-auto max-w-3xl rounded-[2rem] border border-border bg-card/90 p-10 shadow-soft backdrop-blur-xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Ready to start your project?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Let's discuss how we can deliver custom solutions tailored to your unique needs.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-brand-blue px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-brand-blue/20 transition hover:bg-blue-700"
-            >
-              Discuss Your Project
-            </Link>
+                <div className="case-studies-hero__panel-top">
+                  <div className="case-studies-hero__panel-icon">
+                    <Layers3 size={22} />
+                  </div>
+
+                  <span>{caseStudies.length} stories</span>
+                </div>
+
+                <h2>Modern execution for complex operations.</h2>
+
+                <div className="case-studies-focus">
+                  {focusItems.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        className="case-studies-focus__item"
+                        key={item.label}
+                      >
+                        <div className="case-studies-focus__icon">
+                          <Icon size={18} />
+                        </div>
+
+                        <div>
+                          <span>{item.label}</span>
+                          <p>{item.text}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.aside>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        <section className="case-studies-featured">
+          <div className="container case-studies-featured__container">
+            <div className="case-studies-section-header">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.65, ease: easeOut }}
+              >
+                <div className="case-studies-section-header__eyebrow">
+                  <span />
+                  Featured case studies
+                </div>
+
+                <h2>
+                  <span>Modern stories of</span>
+                  <span>enterprise transformation.</span>
+                </h2>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.65, delay: 0.08, ease: easeOut }}
+              >
+                Browse the case studies that show how we turn complex
+                requirements into beautiful, usable systems.
+              </motion.p>
+            </div>
+
+            <div className="case-study-grid">
+              {featuredStudies.map((caseStudy, index) => (
+                <motion.article
+                  key={caseStudy.id}
+                  initial={{ opacity: 0, y: 26 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{
+                    duration: 0.55,
+                    delay: index * 0.05,
+                    ease: easeOut,
+                  }}
+                  className="case-study-card"
+                >
+                  <Link
+                    href={`/case-studies/${caseStudy.slug}`}
+                    className="case-study-card__link"
+                  >
+                    <div className="case-study-card__grid" aria-hidden="true" />
+
+                    <div className="case-study-card__top">
+                      <div className="case-study-card__icon">
+                        <Layers3 size={21} />
+                      </div>
+
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+
+                    <div className="case-study-card__body">
+                      <p className="case-study-card__industry">
+                        {caseStudy.industry}
+                      </p>
+
+                      <h3>{caseStudy.title}</h3>
+
+                      <p className="case-study-card__subtitle">
+                        {caseStudy.subtitle}
+                      </p>
+
+                      <p className="case-study-card__description">
+                        {caseStudy.description}
+                      </p>
+                    </div>
+
+                    <div className="case-study-card__footer">
+                      <span>Open case study</span>
+                      <ArrowRight size={17} />
+                    </div>
+                  </Link>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="case-studies-industries">
+          <div className="container case-studies-industries__container">
+            <div className="case-studies-section-header case-studies-section-header--center">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.65, ease: easeOut }}
+              >
+                <div className="case-studies-section-header__eyebrow">
+                  <span />
+                  Browse by industry
+                </div>
+
+                <h2>
+                  <span>Find the stories that</span>
+                  <span>match your domain.</span>
+                </h2>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.65, delay: 0.08, ease: easeOut }}
+              >
+                Find the right case study by domain and view the stories that
+                match your business needs.
+              </motion.p>
+            </div>
+
+            <div className="industry-grid">
+              {industries.map((industry, index) => {
+                const studiesInIndustry = caseStudies.filter(
+                  (cs) => cs.industry === industry
+                );
+
+                return (
+                  <motion.article
+                    key={industry}
+                    initial={{ opacity: 0, y: 26 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{
+                      duration: 0.55,
+                      delay: index * 0.04,
+                      ease: easeOut,
+                    }}
+                    className="industry-card"
+                  >
+                    <div className="industry-card__grid" aria-hidden="true" />
+
+                    <div className="industry-card__top">
+                      <h3>{industry}</h3>
+
+                      <span>
+                        {studiesInIndustry.length}{" "}
+                        {studiesInIndustry.length === 1 ? "story" : "stories"}
+                      </span>
+                    </div>
+
+                    <div className="industry-card__links">
+                      {studiesInIndustry.map((study) => (
+                        <Link
+                          key={study.id}
+                          href={`/case-studies/${study.slug}`}
+                          className="industry-card__link"
+                        >
+                          {study.title}
+                          <ArrowRight size={15} />
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="case-studies-cta-section">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: easeOut }}
+              className="case-studies-cta"
+            >
+              <div className="case-studies-cta__grid" aria-hidden="true" />
+
+              <div className="case-studies-cta__eyebrow">
+                <span />
+                Ready to start?
+              </div>
+
+              <h2>Ready to start your project?</h2>
+
+              <p>
+                Let&apos;s discuss how we can deliver custom solutions tailored
+                to your unique needs.
+              </p>
+
+              <Link href="/contact" className="case-studies-cta__button">
+                Discuss Your Project
+                <ArrowRight size={17} />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+    </SiteLayout>
   );
 };
 
