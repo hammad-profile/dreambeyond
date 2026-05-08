@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Google Sans Flex', 'Google Sans', 'Product Sans', 'system-ui', 'sans-serif'],
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        display: ['Quicksand', 'Google Sans Flex', 'Google Sans', 'Product Sans', 'system-ui', 'sans-serif'],
+        sans: ['Google Sans Flex', 'Google Sans', 'Product Sans', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       colors: {

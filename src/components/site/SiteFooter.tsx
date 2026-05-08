@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import whiteLogo from "@/assets/whitelogo.png";
 
 export const SiteFooter = () => {
   return (
@@ -11,13 +13,15 @@ export const SiteFooter = () => {
       <div className="container relative py-20 md:py-28">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            {/* <Link href="/" className="flex items-center gap-2">
-              <span className="inline-block w-10 h-10 rounded-full bg-gradient-brand animate-gradient" />
-              <span className="font-display text-4xl tracking-tight">
-                Dream<span className="text-gradient-brand">Beyond</span>
-              </span>
-            </Link> */}
-            <p className="mt-8 text-background/70 max-w-md text-pretty leading-relaxed text-lg">
+            <Link href="/" className="flex items-center mb-8">
+              <Image
+                src={whiteLogo}
+                alt="Dream Beyond"
+                height={64}
+                className="h-16 w-auto"
+              />
+            </Link>
+            <p className="text-background/70 max-w-md text-pretty leading-relaxed text-lg">
               Technology built with judgment. AI used with discipline.
               Systems designed for real business.
             </p>

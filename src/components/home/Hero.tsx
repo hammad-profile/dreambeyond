@@ -2,13 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Bot,
-  Code2,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -33,28 +27,20 @@ const heroStats = [
 
 const capabilities = [
   {
-    icon: Code2,
-    label: "Execution",
-  },
-  {
-    icon: Bot,
-    label: "Practical AI",
-  },
-  {
-    icon: ShieldCheck,
-    label: "Secure Systems",
+    icon: Sparkles,
+    label: "YOUR TECHNOLOGY PARTNER",
   },
 ];
 
 const tickerItems = [
-  "Software Rescue",
-  "AI Strategy",
-  "Custom Platforms",
-  "Advisory",
-  "Automation",
-  "Scalable Systems",
-  "Operations",
-  "Digital Growth",
+  "Advanced Tech Services",
+  "AI Automation",
+  "Web Development",
+  "Mobile Development",
+  "Custom Software",
+  "Business Automation",
+  "Secure Systems",
+  "Scalable Platforms",
 ];
 
 export const Hero = () => {
@@ -72,8 +58,6 @@ export const Hero = () => {
       </div>
 
       <div className="dream-hero__inner">
-        
-
         <motion.div {...fadeUp(0.08)} className="dream-hero__capabilities">
           {capabilities.map((item) => {
             const Icon = item.icon;
@@ -87,19 +71,22 @@ export const Hero = () => {
           })}
         </motion.div>
 
-    <motion.h1 {...fadeUp(0.16)} className="dream-hero__title">
-  <span className="dream-hero__title-line">
-    Your Software <span className="dream-hero__title-highlight"> Should Work</span>
-  </span>
-  <span className="dream-hero__title-line">
-    as <span className="dream-hero__title-highlight">Hard</span> as You Do.
-  </span>
-</motion.h1>
+        <motion.h1 {...fadeUp(0.16)} className="dream-hero__title">
+          <span className="dream-hero__title-line">
+            Your Software{" "}
+            <span className="dream-hero__title-highlight">Should Work</span>
+          </span>
+          <span className="dream-hero__title-line">
+            as <span className="dream-hero__title-highlight">Hard</span> as You
+            Do.
+          </span>
+        </motion.h1>
 
         <motion.p {...fadeUp(0.28)} className="dream-hero__subtitle">
-          You&apos;ve got a business to run. We make sure your technology never
-          holds you back secure, scalable, and built to last from day one.
-        </motion.p>
+  You&apos;ve got a business to run. We make sure your technology never holds
+  you back. We help you build software and AI that stay stable, secure, and
+  useful as your business gets bigger.
+</motion.p>
 
         <motion.div {...fadeUp(0.4)} className="dream-hero__actions">
           <Link

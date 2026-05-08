@@ -9,7 +9,7 @@ const easeOut = [0.2, 0.8, 0.2, 1] as const;
 const paths = [
   {
     number: "01",
-    title: "Advisory",
+    title: "Strategic Software Consultants",
     text: "Get senior technology guidance before expensive mistakes slow you down.",
     href: "/advisory",
     icon: Compass,
@@ -17,7 +17,7 @@ const paths = [
   },
   {
     number: "02",
-    title: "Execution",
+    title: "Custom Software & AI Systems",
     text: "We design and build software, AI tools, and integrations around real business problems.",
     href: "/execution",
     icon: Code2,
@@ -33,11 +33,11 @@ const paths = [
   },
   {
     number: "04",
-    title: "Education",
+    title: "Insights with Ali Kitabi",
     text: "Practical lessons on AI, software architecture, and building technology the right way.",
     href: "/education",
     icon: BookOpen,
-    label: "Education",
+    label: "Insights",
   },
 ];
 
@@ -53,17 +53,18 @@ export const ChoosePath = () => {
           className="choose-path-section__header"
         >
           <div className="choose-path-section__eyebrow">
-            <span />
-            _CHOOSE_YOUR_PATH
+            <span className="choose-path-section__eyebrow-dot" />
+            <span className="choose-path-section__eyebrow-text">
+              CHOOSE YOUR PATH
+            </span>
           </div>
 
           <h2 className="choose-path-section__title">
-            <span>Ways to work with</span>
-            <span>Dream Beyond.</span>
+            Ways to work with <span>Dream Beyond.</span>
           </h2>
 
           <p className="choose-path-section__intro">
-            Choose the level of help you need — from strategic guidance to full
+            Choose the level of help you need from strategic guidance to full
             software execution, products, and practical learning.
           </p>
         </motion.div>
@@ -123,4 +124,4 @@ export const ChoosePath = () => {
       </div>
     </section>
   );
-}; 
+};

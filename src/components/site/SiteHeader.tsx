@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import darkLogo from "@/assets/darklogo.png";
+import whiteLogo from "@/assets/whitelogo.png";
 
 const nav = [
   { to: "/advisory", label: "Advisory" },
@@ -80,14 +83,14 @@ export const SiteHeader = ({ sticky = true }: SiteHeaderProps) => {
       className={`${headerPositionClass} z-50 transition-all duration-300 ${headerStyleClass}`}
     >
       <div className="container flex h-16 items-center justify-between md:h-20">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span
-            className={`font-display text-2xl tracking-tight md:text-3xl ${
-              transparentOnHero ? "text-white" : "text-foreground"
-            }`}
-          >
-            Dream Beyond
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src={transparentOnHero ? whiteLogo : darkLogo}
+            alt="Dream Beyond"
+            height={56}
+            priority
+            className="h-14 w-auto transition-opacity duration-300"
+          />
         </Link>
 
         <nav
@@ -108,17 +111,6 @@ export const SiteHeader = ({ sticky = true }: SiteHeaderProps) => {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Link
-            href="/start"
-            className={`text-sm transition-colors ${
-              transparentOnHero
-                ? "text-white/75 hover:text-white"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Start here
-          </Link>
-
-          <Link
             href="/contact"
             className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-5 py-2.5 text-sm font-medium transition-all hover:shadow-glow ${
               transparentOnHero
@@ -126,7 +118,7 @@ export const SiteHeader = ({ sticky = true }: SiteHeaderProps) => {
                 : "bg-foreground text-background"
             }`}
           >
-            <span className="relative z-10">Book a call</span>
+            <span className="relative z-10">Let&apos;s talk</span>
             <ArrowRight className="relative z-10 size-4 transition-transform group-hover:translate-x-1" />
             <span className="absolute inset-0 bg-gradient-brand opacity-0 transition-opacity group-hover:opacity-100" />
           </Link>
@@ -170,15 +162,13 @@ export const SiteHeader = ({ sticky = true }: SiteHeaderProps) => {
                 </Link>
               ))}
 
-              <Link href="/start" className="text-muted-foreground">
-                Start here
-              </Link>
+
 
               <Link
                 href="/contact"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background"
               >
-                Book a strategy call <ArrowRight className="size-4" />
+                Let&apos;s talk <ArrowRight className="size-4" />
               </Link>
             </div>
           </motion.div>

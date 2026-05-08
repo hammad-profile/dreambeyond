@@ -1,1 +1,242 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/[[...slug]]",
+      "regex": "^(?:/(.+?))?(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^(?:/(?<nxtPslug>.+?))?(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/Advisory",
+      "regex": "^/Advisory(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Advisory(?:/)?$"
+    },
+    {
+      "page": "/case-studies/AgilityHealthReporter",
+      "regex": "^/case\\-studies/AgilityHealthReporter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/AgilityHealthReporter(?:/)?$"
+    },
+    {
+      "page": "/case-studies/AIBusinessAnalyst",
+      "regex": "^/case\\-studies/AIBusinessAnalyst(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/AIBusinessAnalyst(?:/)?$"
+    },
+    {
+      "page": "/case-studies/AIResumeSorter",
+      "regex": "^/case\\-studies/AIResumeSorter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/AIResumeSorter(?:/)?$"
+    },
+    {
+      "page": "/case-studies/AITutor",
+      "regex": "^/case\\-studies/AITutor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/AITutor(?:/)?$"
+    },
+    {
+      "page": "/case-studies/ATOM",
+      "regex": "^/case\\-studies/ATOM(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/ATOM(?:/)?$"
+    },
+    {
+      "page": "/case-studies/ClinicalTrialManagement",
+      "regex": "^/case\\-studies/ClinicalTrialManagement(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/ClinicalTrialManagement(?:/)?$"
+    },
+    {
+      "page": "/case-studies/GCCClaims",
+      "regex": "^/case\\-studies/GCCClaims(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/GCCClaims(?:/)?$"
+    },
+    {
+      "page": "/case-studies/LIMS",
+      "regex": "^/case\\-studies/LIMS(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/LIMS(?:/)?$"
+    },
+    {
+      "page": "/case-studies/MLS",
+      "regex": "^/case\\-studies/MLS(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/MLS(?:/)?$"
+    },
+    {
+      "page": "/case-studies/OOSA",
+      "regex": "^/case\\-studies/OOSA(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/OOSA(?:/)?$"
+    },
+    {
+      "page": "/case-studies/Peacock",
+      "regex": "^/case\\-studies/Peacock(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/Peacock(?:/)?$"
+    },
+    {
+      "page": "/case-studies/StacketIMS",
+      "regex": "^/case\\-studies/StacketIMS(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/StacketIMS(?:/)?$"
+    },
+    {
+      "page": "/case-studies/StacketLens",
+      "regex": "^/case\\-studies/StacketLens(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/StacketLens(?:/)?$"
+    },
+    {
+      "page": "/case-studies/StacketLensMobile",
+      "regex": "^/case\\-studies/StacketLensMobile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/StacketLensMobile(?:/)?$"
+    },
+    {
+      "page": "/case-studies/TicketManagement",
+      "regex": "^/case\\-studies/TicketManagement(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/TicketManagement(?:/)?$"
+    },
+    {
+      "page": "/case-studies/WorkflowLaborManagement",
+      "regex": "^/case\\-studies/WorkflowLaborManagement(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies/WorkflowLaborManagement(?:/)?$"
+    },
+    {
+      "page": "/CaseStudies",
+      "regex": "^/CaseStudies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/CaseStudies(?:/)?$"
+    },
+    {
+      "page": "/Contact",
+      "regex": "^/Contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Contact(?:/)?$"
+    },
+    {
+      "page": "/CustomSoftware",
+      "regex": "^/CustomSoftware(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/CustomSoftware(?:/)?$"
+    },
+    {
+      "page": "/Education",
+      "regex": "^/Education(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Education(?:/)?$"
+    },
+    {
+      "page": "/Execution",
+      "regex": "^/Execution(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Execution(?:/)?$"
+    },
+    {
+      "page": "/FractionalCTO",
+      "regex": "^/FractionalCTO(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/FractionalCTO(?:/)?$"
+    },
+    {
+      "page": "/Index",
+      "regex": "^/Index(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Index(?:/)?$"
+    },
+    {
+      "page": "/Insights",
+      "regex": "^/Insights(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Insights(?:/)?$"
+    },
+    {
+      "page": "/NotFound",
+      "regex": "^/NotFound(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/NotFound(?:/)?$"
+    },
+    {
+      "page": "/products/BeyondAI",
+      "regex": "^/products/BeyondAI(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/BeyondAI(?:/)?$"
+    },
+    {
+      "page": "/products/Restro",
+      "regex": "^/products/Restro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/Restro(?:/)?$"
+    },
+    {
+      "page": "/products/Stacket",
+      "regex": "^/products/Stacket(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products/Stacket(?:/)?$"
+    },
+    {
+      "page": "/Products",
+      "regex": "^/Products(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Products(?:/)?$"
+    },
+    {
+      "page": "/StartHere",
+      "regex": "^/StartHere(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/StartHere(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

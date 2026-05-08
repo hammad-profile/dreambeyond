@@ -28,7 +28,7 @@ const problemCards = [
   {
     icon: ShieldCheck,
     title: "Security as an afterthought",
-    text: "AI doesn't think about attack vectors. Your customer data deserves better than a chatbot's best guess.",
+    text: "AI does not think about attack vectors. Your customer data deserves better than a chatbot's best guess.",
   },
   {
     icon: Code2,
@@ -46,10 +46,10 @@ export const Problem = () => (
   <section className="problem-section">
     <div className="container problem-section__container">
       <div className="problem-section__header">
-        <motion.div {...reveal}>
+        <motion.div {...reveal} className="problem-section__header-content">
           <div className="problem-section__eyebrow">
-            <span />
-            _THE_PROBLEM
+            <span className="problem-section__eyebrow-dot" />
+            <span className="problem-section__eyebrow-text">THE PROBLEM</span>
           </div>
 
           <h2 className="problem-section__title">

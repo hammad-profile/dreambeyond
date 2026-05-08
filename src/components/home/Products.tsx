@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Boxes,
-  UtensilsCrossed,
-  BrainCircuit,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import restroImage from "@/assets/home/products/restro.png";
+import seranovaImage from "@/assets/home/products/seranova.png";
+import stacketImage from "@/assets/home/products/stacket.jpg";
 
 const easeOut = [0.2, 0.8, 0.2, 1] as const;
 
@@ -18,7 +16,8 @@ const products = [
     description:
       "Unified operations platform for warehousing and third-party logistics companies. Real-time inventory, order management, and analytics in one system.",
     href: "/products/stacket",
-    icon: Boxes,
+    image: stacketImage,
+    imageAlt: "Stacket warehouse operations dashboard",
   },
   {
     name: "Restro",
@@ -26,7 +25,8 @@ const products = [
     description:
       "End-to-end platform for restaurants and food catering companies. From kitchen management to customer engagement to financial reporting.",
     href: "/products/restro",
-    icon: UtensilsCrossed,
+    image: restroImage,
+    imageAlt: "Restro restaurant operations dashboard",
   },
   {
     name: "Seranova.ai",
@@ -34,7 +34,8 @@ const products = [
     description:
       "Collects reviews, detects negative sentiment before it goes public, and helps hospitality, healthcare, and tech service companies protect their reputation.",
     href: "/products/beyond-ai",
-    icon: BrainCircuit,
+    image: seranovaImage,
+    imageAlt: "Seranova AI reputation intelligence interface",
   },
 ];
 
@@ -48,10 +49,11 @@ export const Products = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: easeOut }}
+            className="db-products__header-content"
           >
             <div className="db-products__eyebrow">
-              <span />
-              _OUR_PRODUCTS
+              <span className="db-products__eyebrow-dot" />
+              <span className="db-products__eyebrow-text">OUR PRODUCTS</span>
             </div>
 
             <h2 className="db-products__title">
@@ -71,18 +73,11 @@ export const Products = () => {
               Production-grade products built by Dream Beyond, serving real
               businesses at scale.
             </p>
-
-            <Link href="/products" className="db-products__view-link">
-              View all products
-              <ArrowRight size={17} />
-            </Link>
           </motion.div>
         </div>
 
         <div className="db-products__cards">
           {products.map((product, index) => {
-            const Icon = product.icon;
-
             return (
               <motion.article
                 key={product.name}
@@ -97,17 +92,20 @@ export const Products = () => {
                 className="db-product-card"
               >
                 <Link href={product.href} className="db-product-card__link">
-                  <div className="db-product-card__grid" aria-hidden="true" />
-
-                  <div className="db-product-card__top">
-                    <div className="db-product-card__icon">
-                      <Icon size={22} strokeWidth={2.1} />
-                    </div>
-
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div className="db-product-card__image">
+                    <img
+                      src={product.image.src}
+                      alt={product.imageAlt}
+                      loading="lazy"
+                      className="db-product-card__image-media"
+                    />
                   </div>
 
                   <div className="db-product-card__body">
+                    <p className="db-product-card__number">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+
                     <p className="db-product-card__label">{product.label}</p>
 
                     <h3>{product.name}</h3>
@@ -126,6 +124,19 @@ export const Products = () => {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, delay: 0.12, ease: easeOut }}
+          className="db-products__bottom-cta"
+        >
+          <Link href="/products" className="db-products__view-link">
+            View all products
+            <ArrowRight size={17} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

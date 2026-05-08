@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Search, Hammer, GraduationCap } from "lucide-react";
 
@@ -10,7 +11,7 @@ const phases = [
     number: "01",
     label: "Advisory",
     title: "Strategic Audit",
-    text: "We diagnose what's working, what's not, and what's about to break. Architecture reviews, AI readiness assessments, and honest technology strategy — before a single line of code is written.",
+    text: "We diagnose what's working, what's not, and what's about to break. Architecture reviews, AI readiness assessments, and honest technology strategy before a single line of code is written.",
     icon: Search,
   },
   {
@@ -24,7 +25,7 @@ const phases = [
     number: "03",
     label: "Education",
     title: "Operational Mastery",
-    text: "We teach your team how to maintain, evolve, and extend what we've built — and how to use AI as a tool, not a crutch. Your independence is our success metric.",
+    text: "We teach your team how to maintain, evolve, and extend what we've built and how to use AI as a tool, not a crutch. Your independence is our success metric.",
     icon: GraduationCap,
   },
 ];
@@ -41,25 +42,27 @@ export const PlanSection = () => {
             transition={{ duration: 0.7, ease: easeOut }}
             className="plan-premium__main-card"
           >
-            <div className="plan-premium__eyebrow">
-              <span />
-              _THE_PLAN
+            <div>
+              <div className="plan-premium__eyebrow">
+                <span className="plan-premium__eyebrow-dot" />
+                <span className="plan-premium__eyebrow-text">THE PLAN</span>
+              </div>
+
+              <h2 className="plan-premium__title">
+                <span>We bring judgment</span>
+                <span>to modern software.</span>
+              </h2>
+
+              <p className="plan-premium__text">
+                Every engagement follows a proven path from diagnosis to
+                delivery to independence.
+              </p>
             </div>
 
-            <h2 className="plan-premium__title">
-              <span>We bring judgment</span>
-              <span>to modern software.</span>
-            </h2>
-
-            <p className="plan-premium__text">
-              Every engagement follows a proven path from diagnosis to delivery
-              to independence.
-            </p>
-
-            <a href="/advisory" className="plan-premium__cta">
+            <Link href="/advisory" className="plan-premium__cta">
               See our Services
               <span>→</span>
-            </a>
+            </Link>
           </motion.div>
 
           <div className="plan-premium__cards">

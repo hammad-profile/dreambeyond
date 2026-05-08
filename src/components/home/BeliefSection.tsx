@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Layers3, LockKeyhole, Gauge, Eye } from "lucide-react";
+import { ArrowRight, Layers3, LockKeyhole, Gauge, Eye } from "lucide-react";
 
 const easeOut = [0.2, 0.8, 0.2, 1] as const;
 
@@ -44,20 +45,29 @@ export const BeliefSection = () => {
             transition={{ duration: 0.7, ease: easeOut }}
             className="belief-section__intro-card"
           >
-            <div className="belief-section__eyebrow">
-              <span />
-              _WHY_TRUST_US
+            <div>
+              <div className="belief-section__eyebrow">
+                <span className="belief-section__eyebrow-dot" />
+                <span className="belief-section__eyebrow-text">
+                  WHY TRUST US
+                </span>
+              </div>
+
+              <h2 className="belief-section__title">
+                <span>What we believe in.</span>
+                <span>Built into every step.</span>
+              </h2>
+
+              <p className="belief-section__text">
+                Our convictions aren't marketing. They're engineering principles
+                that govern every decision we make.
+              </p>
             </div>
 
-            <h2 className="belief-section__title">
-              <span>What we believe in.</span>
-              <span>Built into every step.</span>
-            </h2>
-
-            <p className="belief-section__text">
-              Our convictions aren't marketing. They're engineering principles
-              that govern every decision we make.
-            </p>
+            <Link href="/contact" className="belief-section__cta">
+              Book a Strategy Call
+              <ArrowRight size={17} />
+            </Link>
           </motion.div>
 
           <div className="belief-section__cards">
