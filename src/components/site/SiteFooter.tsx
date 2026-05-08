@@ -25,10 +25,7 @@ export const SiteFooter = () => {
               Technology built with judgment. AI used with discipline.
               Systems designed for real business.
             </p>
-            <div className="mt-10 inline-flex items-center gap-3 label-eyebrow text-background/50">
-              <span className="w-2 h-2 rounded-full bg-brand-blue" />
-              Est. systems thinking since 1999
-            </div>
+          
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">

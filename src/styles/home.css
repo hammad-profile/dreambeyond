@@ -2486,6 +2486,10 @@
   letter-spacing: 0.020em;
 }
 
+main .choose-path-row p {
+  color: #ffffff !important;
+}
+
 .choose-path-row__arrow {
   display: flex;
   justify-content: flex-end;
@@ -2878,7 +2882,7 @@
 .db-product-card h3 {
   margin-top: 18px;
   color: #07111f;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
   line-height: 0.98;
   font-weight: 700;
   letter-spacing: -0.035em;
