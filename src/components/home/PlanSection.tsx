@@ -11,21 +11,21 @@ const phases = [
     number: "01",
     label: "Advisory",
     title: "Strategic Audit",
-    text: "We diagnose what's working, what's not, and what's about to break. Architecture reviews, AI readiness assessments, and honest technology strategy before a single line of code is written.",
+    text: "We diagnose what is working, what is not, and what is about to break. We review your architecture, AI readiness, workflows, data flow, access controls, and security gaps before a single line of code is written.",
     icon: Search,
   },
   {
     number: "02",
     label: "Execution",
     title: "Hardened Execution",
-    text: "We build custom platforms, AI systems, and integrations that are production-grade from day one. No prototypes masquerading as products. No shortcuts that cost you later.",
+    text: "We build custom platforms, AI systems, and integrations that are production-ready from day one. Every build is shaped around scalability, security, permissions, data protection, and the real workflows your business depends on.",
     icon: Hammer,
   },
   {
     number: "03",
     label: "Education",
     title: "Operational Mastery",
-    text: "We teach your team how to maintain, evolve, and extend what we've built and how to use AI as a tool, not a crutch. Your independence is our success metric.",
+    text: "We teach your team how to maintain, evolve, and extend what we have built and how to use AI as a tool, not a crutch. Your independence is our success metric.",
     icon: GraduationCap,
   },
 ];
@@ -54,8 +54,8 @@ export const PlanSection = () => {
               </h2>
 
               <p className="plan-premium__text">
-                Every engagement follows a proven path from diagnosis to
-                delivery to independence.
+                Every engagement follows a clear path from diagnosis to secure
+                delivery to team independence.
               </p>
             </div>
 

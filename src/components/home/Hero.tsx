@@ -73,20 +73,16 @@ export const Hero = () => {
 
         <motion.h1 {...fadeUp(0.16)} className="dream-hero__title">
   <span className="dream-hero__title-line">
-    You Don&apos;t Need Code That Works Today.
+   From scattered tools to
   </span>
   <span className="dream-hero__title-line">
-     You<span className="dream-hero__title-highlight"> Need Systems</span> That
-    Hold Up <span className="dream-hero__title-highlight">Tomorrow.</span>
+     <span className="dream-hero__title-highlight"> scalable systems</span> guided by clear 
+     <span className="dream-hero__title-highlight"> technology strategy..</span>
   </span>
 </motion.h1>
 
         <motion.p {...fadeUp(0.28)} className="dream-hero__subtitle">
-          You are making decisions that will shape how your business grows,
-          operates, and competes. Manual work, disconnected SaaS tools, weak AI
-          built prototypes, and legacy software make every next step harder. You
-          need technology that fits how your business actually runs and supports
-          where it is going.
+          We help growing businesses move beyond spreadsheets, SaaS workarounds, fragile AI prototypes, and legacy software by building secure, practical AI systems and providing the technology guidance needed to support real operations and future growth.
         </motion.p>
 
         <motion.div {...fadeUp(0.4)} className="dream-hero__actions">

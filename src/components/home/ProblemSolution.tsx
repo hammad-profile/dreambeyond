@@ -22,23 +22,23 @@ const reveal = {
 const problemCards = [
   {
     icon: AlertTriangle,
-    title: "AI code that crumbles at scale",
-    text: "Anyone can generate code now. But without proper architecture, it collapses the moment real users arrive.",
+    title: "You know you need AI, but you do not know where to start.",
+    text: "Your team sees competitors automating faster, serving customers better, and making smarter decisions. But without the right technology guidance, AI feels risky, confusing, and hard to apply to real business problems.",
   },
   {
     icon: ShieldCheck,
-    title: "Security as an afterthought",
-    text: "AI does not think about attack vectors. Your customers trust you with their information. Your software should protect that trust.",
+    title: "You are not sure your data is protected.",
+    text: "Your business may be using multiple tools, shared logins, manual exports, and disconnected workflows. That creates hidden security gaps your team may not notice until something goes wrong.",
   },
   {
     icon: Code2,
-    title: "Disconnected tools bleeding money",
-    text: "Five SaaS tools doing five different things. None talking to each other. Your decisions are only as fast as your slowest spreadsheet.",
+    title: "Your tools are not giving you the full picture",
+    text: "You may have multiple SaaS apps, but your data lives in separate places. Your team keeps copying, exporting, and guessing instead of seeing one clear view of operations, customers, costs, and growth.",
   },
   {
     icon: Gauge,
-    title: "Technical debt compounding daily",
-    text: "The longer weak systems run, the harder they are to fix. When systems are built without clear architecture, every new feature adds more risk, more delays, and more cleanup adding to the costs",
+    title: "You are afraid your systems will not scale when growth comes.",
+    text: "Quick fixes, legacy systems, and fast AI-built prototypes can work for a while. But when traffic, users, security, compliance, and complexity increase, weak technology can turn growth into a rebuild.",
   },
 ];
 
@@ -54,7 +54,8 @@ export const Problem = () => (
 
           <h2 className="problem-section__title">
             <span>The world is building fast.</span>
-            <span>It’s also building fragile.</span>
+            <span>Your systems cannot afford </span>
+            <span>to fall behind.</span>
           </h2>
         </motion.div>
 
@@ -63,8 +64,7 @@ export const Problem = () => (
           transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
           className="problem-section__intro"
         >
-          AI is giving non-engineers the ability to write code. But nobody is
-          teaching them what breaks when it hits production.
+          AI is changing how businesses operate, automate, and grow. But many companies are still stuck with manual work, outdated software, disconnected tools, and fragile systems that cannot support their next stage.
         </motion.p>
       </div>
 
