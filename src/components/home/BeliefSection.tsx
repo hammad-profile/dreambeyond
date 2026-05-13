@@ -54,13 +54,12 @@ export const BeliefSection = () => {
               </div>
 
               <h2 className="belief-section__title">
-                <span>What we believe in is.</span>
-                <span>Built into every step.</span>
+                <span>25 years of experience.</span>
+                <span>Built for the AI era.</span>
               </h2>
 
               <p className="belief-section__text">
-                Our convictions aren't marketing. They're engineering principles
-                that govern every decision we make.
+                You get the speed of modern AI tools backed by 25 years of experience building secure, scalable, complex systems.
               </p>
             </div>
 
