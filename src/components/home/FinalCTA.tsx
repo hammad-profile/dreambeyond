@@ -22,12 +22,11 @@ export const FinalCTA = () => (
         </div>
 
         <h2 className="final-cta__title">
-          Stop patching. Start building.
+          Turn scattered tools into a system that scales.
         </h2>
 
         <p className="final-cta__text">
-          Whether you need a strategic partner, a team of builders, or a way to
-          upskill your people — we're ready when you are.
+       Whether you need a strategic technology partner, a team of tech builders, or AI systems that support real operations, we are ready when you are.
         </p>
 
         <Link href="/start" className="final-cta__button">

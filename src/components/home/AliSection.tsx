@@ -53,20 +53,25 @@ export const AliSection = () => (
 
             <div className="ali-section__text">
               <p>
-                I have spent more than 25 years building software, solving
-                operational problems, and guiding technology decisions across
-                industries.
+                For more than 25 years, I have built software for businesses
+                where mistakes are expensive and systems must hold up.
               </p>
 
               <p>
-                Today, I help businesses avoid expensive technical mistakes, use
-                AI responsibly, and build systems that support real growth.
+                I have worked with operations-heavy companies across supply
+                chain, oil and gas, healthcare, clinical trials, and insurance,
+                where technology has to support real people, real workflows, and
+                real growth.
               </p>
-
-              <p className="ali-section__highlight">
-                I also teach the next generation of builders how to think
-                <span> beyond code</span>.
-              </p>
+<blockquote className="ali-section__highlight ali-section__quote">
+  <span className="ali-section__quote-mark" aria-hidden="true">
+    ””
+  </span>
+  Today, I help growing businesses use AI, automation, and custom software with
+  the right architecture, security, scalability, and technology guidance behind
+  every decision, so they can move beyond manual work, scattered tools, fragile
+  prototypes, and outdated systems.
+</blockquote>
             </div>
           </div>
 
