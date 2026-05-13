@@ -1,15 +1,17 @@
 "use client";
 
+import "../styles/home.css";
 import "../styles/contact.css";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
 import {
   ArrowRight,
+  CalendarDays,
   CheckCircle2,
   Mail,
-  MessageSquare,
   MapPin,
+  MessageSquare,
   Phone,
   X,
 } from "lucide-react";
@@ -17,6 +19,18 @@ import {
 const easeOut = [0.2, 0.8, 0.2, 1] as const;
 
 const contactEmail = "letstalk@letsdreambeyond.com";
+const calendlyLink = "https://calendly.com/ali-kitabi-letsdreambeyond/30min?";
+
+const tickerItems = [
+  "Strategy Calls",
+  "AI Automation",
+  "Custom Software",
+  "Web Development",
+  "Mobile Development",
+  "Business Automation",
+  "Secure Systems",
+  "Scalable Platforms",
+];
 
 const contactDetails = [
   {
@@ -33,10 +47,24 @@ const contactDetails = [
   },
   {
     icon: MapPin,
-    label: "Address",
-    value:
-      "8190 Barker Cypress Rd Ste 1900-660 Cypress, TX, 77433 United States",
+    label: "Locations",
+    value: "Houston, USA + Karachi, Pakistan",
     href: null,
+  },
+];
+
+const officeLocations = [
+  {
+    city: "Houston",
+    country: "USA",
+    address: "Houston, Texas, United States",
+    note: "For US clients, strategy calls, business advisory, and product conversations.",
+  },
+  {
+    city: "Karachi",
+    country: "Pakistan",
+    address: "Karachi, Sindh, Pakistan",
+    note: "For Pakistan clients, delivery support, software execution, and team collaboration.",
   },
 ];
 
@@ -88,21 +116,27 @@ const Contact = () => {
     const formData = new FormData(event.currentTarget);
 
     const name = String(formData.get("name") || "").trim();
+    const companyName = String(formData.get("company_name") || "").trim();
     const email = String(formData.get("email") || "").trim();
-    const projectType = String(formData.get("project_type") || "").trim();
-    const message = String(formData.get("message") || "").trim();
+    const serviceRequired = String(
+      formData.get("service_required") || ""
+    ).trim();
+    const projectBudget = String(formData.get("project_budget") || "").trim();
+    const projectDetails = String(formData.get("project_details") || "").trim();
 
     const subject = `Dream Beyond inquiry${
-      projectType ? ` — ${projectType}` : ""
+      serviceRequired ? ` — ${serviceRequired}` : ""
     }`;
 
     const body = [
-      `Name: ${name || "Not provided"}`,
+      `Full Name: ${name || "Not provided"}`,
+      `Company name: ${companyName || "Not provided"}`,
       `Email: ${email || "Not provided"}`,
-      `Project type: ${projectType || "Not selected"}`,
+      `Service required: ${serviceRequired || "Not selected"}`,
+      `Project budget: ${projectBudget || "Not selected"}`,
       "",
-      "Message:",
-      message || "Not provided",
+      "Project details:",
+      projectDetails || "Not provided",
     ].join("\n");
 
     const href = `mailto:${contactEmail}?subject=${encodeURIComponent(
@@ -124,35 +158,101 @@ const Contact = () => {
   return (
     <SiteLayout>
       <main className="contact-page">
-        <section className="contact-hero">
-          <div className="container contact-hero__container">
-            <motion.div
+        <section className="dream-hero contact-simple-hero">
+          <div className="dream-hero__background" aria-hidden="true">
+            <div className="dream-hero__aurora" />
+            <div className="dream-hero__soft-grid" />
+            <div className="dream-hero__floor-grid" />
+            <div className="dream-hero__beam dream-hero__beam--one" />
+            <div className="dream-hero__beam dream-hero__beam--two" />
+            <div className="dream-hero__orb dream-hero__orb--one" />
+            <div className="dream-hero__orb dream-hero__orb--two" />
+            <div className="dream-hero__noise" />
+          </div>
+
+          <div className="dream-hero__inner">
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, delay: 0.16, ease: easeOut }}
+              className="dream-hero__title"
+            >
+              <span className="dream-hero__title-line">
+                Let&apos;s Build{" "}
+                <span className="dream-hero__title-highlight">What Your</span>
+              </span>
+              <span className="dream-hero__title-line">
+                Business Needs Next.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, delay: 0.28, ease: easeOut }}
+              className="dream-hero__subtitle"
+            >
+              Tell us about your idea, your system, or the problem slowing your
+              team down. We&apos;ll help you find the smartest next step.
+            </motion.p>
+          </div>
+
+          <div className="dream-hero__ticker">
+            <div className="dream-hero__ticker-track">
+              {[...Array(2)].map((_, groupIndex) => (
+                <div className="dream-hero__ticker-group" key={groupIndex}>
+                  {tickerItems.map((item) => (
+                    <span key={item}>
+                      {item}
+                      <i />
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-content-section" id="contact-form">
+          <div className="container contact-content-section__container">
+            <motion.section
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: easeOut }}
-              className="contact-hero__header"
+              transition={{ duration: 0.7, delay: 0.08, ease: easeOut }}
+              className="contact-booking"
             >
-              <div className="contact-hero__eyebrow">
-                <span />
-                _CONTACT_US
+              <div className="contact-booking__content">
+                <div className="contact-booking__icon">
+                  <CalendarDays size={22} />
+                </div>
+
+                <div>
+                  <span>Book a call</span>
+                  <h2>Want to talk directly?</h2>
+                  <p>
+                    Pick a time that works for you. This is the fastest way to
+                    discuss your idea, software need, AI project, or business
+                    problem.
+                  </p>
+                </div>
               </div>
 
-              <h1 className="contact-hero__title">
-                <span>Let’s talk about what</span>
-                <span>you need to build next.</span>
-              </h1>
-
-              <p className="contact-hero__intro">
-                Tell us where you are, what is breaking, and what should happen
-                next. We’ll help you decide the smartest path forward.
-              </p>
-            </motion.div>
+              <a
+                href={calendlyLink}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-booking__button"
+              >
+                Schedule 30 Minute Call
+                <ArrowRight size={17} />
+              </a>
+            </motion.section>
 
             <div className="contact-layout">
               <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
+                transition={{ duration: 0.7, delay: 0.14, ease: easeOut }}
                 className="contact-card contact-card--form"
               >
                 <div className="contact-card__grid" aria-hidden="true" />
@@ -165,49 +265,82 @@ const Contact = () => {
                   <div>
                     <h2>Start the conversation</h2>
                     <p>
-                      Submit the form to review your message first. Then you can
-                      open your email app and send it.
+                      Fill out the form below. Your message will open in your
+                      email app before sending.
                     </p>
                   </div>
                 </div>
 
                 <form className="contact-form" onSubmit={handleSubmit}>
+                  <label className="contact-form__full">
+                    Full Name
+                    <input name="name" type="text" placeholder="Jane Cooper" />
+                  </label>
+
                   <div className="contact-form__row">
                     <label>
-                      Name
-                      <input name="name" type="text" placeholder="Your name" />
+                      Company name
+                      <input
+                        name="company_name"
+                        type="text"
+                        placeholder="Ex. Tesla Inc"
+                      />
                     </label>
 
                     <label>
-                      Email
+                      Email*
                       <input
                         name="email"
                         type="email"
                         placeholder="you@example.com"
+                        required
                       />
                     </label>
                   </div>
 
-                  <label>
-                    What do you need help with?
-                    <select name="project_type" defaultValue="">
-                      <option value="" disabled>
-                        Select one
-                      </option>
-                      <option value="Advisory">Advisory</option>
-                      <option value="Execution">Execution</option>
-                      <option value="Products">Products</option>
-                      <option value="Education">Education</option>
-                      <option value="Not sure yet">Not sure yet</option>
-                    </select>
-                  </label>
+                  <div className="contact-form__row">
+                    <label>
+                      Service required*
+                      <select name="service_required" defaultValue="" required>
+                        <option value="" disabled>
+                          Select Your Service
+                        </option>
+                        <option value="Advisory">Advisory</option>
+                        <option value="Execution">Execution</option>
+                        <option value="Custom Software">Custom Software</option>
+                        <option value="AI / Automation">AI / Automation</option>
+                        <option value="Products">Products</option>
+                        <option value="Education">Education</option>
+                        <option value="Not sure yet">Not sure yet</option>
+                      </select>
+                    </label>
 
-                  <label>
-                    Message
+                    <label>
+                      Project budget*
+                      <select name="project_budget" defaultValue="" required>
+                        <option value="" disabled>
+                          Select Your Range
+                        </option>
+                        <option value="Under $5,000">Under $5,000</option>
+                        <option value="$5,000 - $15,000">
+                          $5,000 - $15,000
+                        </option>
+                        <option value="$15,000 - $50,000">
+                          $15,000 - $50,000
+                        </option>
+                        <option value="$50,000+">$50,000+</option>
+                        <option value="Not sure yet">Not sure yet</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <label className="contact-form__full">
+                    Project details*
                     <textarea
-                      name="message"
+                      name="project_details"
                       rows={6}
-                      placeholder="Tell us what you are trying to solve..."
+                      placeholder="Tell us more about your idea"
+                      required
                     />
                   </label>
 
@@ -221,7 +354,7 @@ const Contact = () => {
               <motion.aside
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.16, ease: easeOut }}
+                transition={{ duration: 0.7, delay: 0.2, ease: easeOut }}
                 className="contact-side"
               >
                 <div className="contact-side__panel">
@@ -281,13 +414,55 @@ const Contact = () => {
             <motion.section
               initial={{ opacity: 0, y: 34 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.22, ease: easeOut }}
+              transition={{ duration: 0.75, delay: 0.24, ease: easeOut }}
+              className="contact-locations"
+            >
+              <div className="contact-locations__header">
+                <div className="contact-section-eyebrow">
+                  <span />
+                  Locations
+                </div>
+
+                <h2>Two places. One connected team.</h2>
+
+                <p>
+                  Dream Beyond works with clients through our USA and Pakistan
+                  presence. Add real city photos later by replacing the image
+                  placeholder boxes.
+                </p>
+              </div>
+
+              <div className="contact-locations__grid">
+                {officeLocations.map((location) => (
+                  <article
+                    className="contact-location-card"
+                    key={location.city}
+                  >
+                    <div className="contact-location-card__image">
+                      <span>{location.city} city image placeholder</span>
+                    </div>
+
+                    <div className="contact-location-card__body">
+                      <span>{location.country}</span>
+                      <h3>{location.city}</h3>
+                      <strong>{location.address}</strong>
+                      <p>{location.note}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </motion.section>
+
+            <motion.section
+              initial={{ opacity: 0, y: 34 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.28, ease: easeOut }}
               className="contact-faq"
             >
               <div className="contact-faq__header">
                 <div className="contact-faq__eyebrow">
                   <span />
-                  _FAQ
+                  FAQ
                 </div>
 
                 <h2 className="contact-faq__title">

@@ -11,6 +11,8 @@ import { AliSection } from "@/components/home/AliSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { PlanSection } from "@/components/home/PlanSection";
 import { BeliefSection } from "@/components/home/BeliefSection";
+import { DiscoveryProcess } from "@/components/home/DiscoveryProcess";
+import { ClientTrust } from "@/components/home/ClientTrust";
 
 const Index = () => (
   <SiteLayout>
@@ -22,8 +24,10 @@ const Index = () => (
     {/* <Solution /> */}
     <ChoosePath />
     {/* <WhyTrust /> */}
+    {/* <ClientTrust /> */}
     <Products />
     <AliSection />
+    <DiscoveryProcess />
     <FinalCTA />
   </SiteLayout>
 );

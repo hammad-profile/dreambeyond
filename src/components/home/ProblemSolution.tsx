@@ -28,17 +28,17 @@ const problemCards = [
   {
     icon: ShieldCheck,
     title: "Security as an afterthought",
-    text: "AI does not think about attack vectors. Your customer data deserves better than a chatbot's best guess.",
+    text: "AI does not think about attack vectors. Your customers trust you with their information. Your software should protect that trust.",
   },
   {
     icon: Code2,
     title: "Disconnected tools bleeding money",
-    text: "Five tools doing five things. None talking to each other. Your decisions are only as fast as your slowest spreadsheet.",
+    text: "Five SaaS tools doing five different things. None talking to each other. Your decisions are only as fast as your slowest spreadsheet.",
   },
   {
     icon: Gauge,
     title: "Technical debt compounding daily",
-    text: "Quick fixes today become six-figure rewrites tomorrow. Every shortcut is a loan with brutal interest.",
+    text: "The longer weak systems run, the harder they are to fix. When systems are built without clear architecture, every new feature adds more risk, more delays, and more cleanup adding to the costs",
   },
 ];
 
