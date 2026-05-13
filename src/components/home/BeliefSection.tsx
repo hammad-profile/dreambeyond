@@ -54,7 +54,7 @@ export const BeliefSection = () => {
               </div>
 
               <h2 className="belief-section__title">
-                <span>What we believe in.</span>
+                <span>What we believe in is.</span>
                 <span>Built into every step.</span>
               </h2>
 
