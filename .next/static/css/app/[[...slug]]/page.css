@@ -2332,6 +2332,10 @@
    CHOOSE PATH SECTION START
    ========================= */
 
+/* =========================
+   CHOOSE PATH SECTION START
+   ========================= */
+
 .choose-path-section {
   position: relative;
   overflow: hidden;
@@ -2389,7 +2393,7 @@
   display: inline-block;
 }
 
-/* One-line heading */
+/* Heading */
 .choose-path-section__title {
   max-width: 100%;
   margin: 22px auto 0;
@@ -2612,17 +2616,20 @@ main .choose-path-row p {
   .choose-path-section__title {
     margin-left: 0;
     margin-right: 0;
-    font-size: clamp(1.2rem, 6.1vw, 2.15rem);
-    line-height: 1;
+    max-width: 100%;
+    font-size: clamp(2rem, 9vw, 2.5rem);
+    line-height: 1.06;
     font-weight: 700;
     letter-spacing: -0.04em;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
     text-align: left;
   }
 
   .choose-path-section__title span {
     display: inline;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .choose-path-section__intro {
@@ -2673,6 +2680,10 @@ main .choose-path-row p {
     font-size: 16px;
   }
 }
+
+/* =========================
+   CHOOSE PATH SECTION END
+   ========================= */
 
 /* =========================
    CHOOSE PATH SECTION END
@@ -3535,6 +3546,68 @@ main .choose-path-row p {
     padding: 14px 22px;
   }
 }
+
+
+
+   .ali-section__quote {
+  position: relative !important;
+  margin: 0 !important;
+  padding: 34px 30px 32px !important;
+
+  background: #ffffff !important;
+  border: 1px solid #111111 !important;
+  border-radius: 10px !important;
+
+  box-shadow: 8px 8px 0 #168cff !important;
+
+  color: inherit !important;
+  font-style: normal !important;
+  text-align: left !important;
+
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+}
+
+.ali-section__quote.ali-section__highlight {
+  background: #ffffff !important;
+  border: 1px solid #111111 !important;
+  border-radius: 10px !important;
+  box-shadow: 8px 8px 0 #168cff !important;
+}
+
+.ali-section__quote-mark {
+  position: absolute !important;
+  top: -52px !important;
+  right: -8px !important;
+  left: auto !important;
+
+  font-size: 104px !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: -20px !important;
+
+  color: #000000 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 640px) {
+  .ali-section__quote {
+    padding: 30px 22px 26px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    box-shadow: 6px 6px 0 #168cff !important;
+  }
+
+  .ali-section__quote-mark {
+    top: -42px !important;
+    right: -5px !important;
+    font-size: 78px !important;
+    letter-spacing: -15px !important;
+  }
+}
+
 
 /* =========================
    ALI SECTION END
@@ -4469,65 +4542,7 @@ main .choose-path-row p {
 
 
 
-
-   .ali-section__quote {
-  position: relative !important;
-  margin: 0 !important;
-  padding: 34px 30px 32px !important;
-
-  background: #ffffff !important;
-  border: 1px solid #111111 !important;
-  border-radius: 10px !important;
-
-  box-shadow: 8px 8px 0 #168cff !important;
-
-  color: inherit !important;
-  font-style: normal !important;
-  text-align: left !important;
-
-  font-size: 18px !important;
-  font-weight: 500 !important;
-  line-height: 1.55 !important;
-}
-
-.ali-section__quote.ali-section__highlight {
-  background: #ffffff !important;
-  border: 1px solid #111111 !important;
-  border-radius: 10px !important;
-  box-shadow: 8px 8px 0 #168cff !important;
-}
-
-.ali-section__quote-mark {
-  position: absolute !important;
-  top: -52px !important;
-  right: -8px !important;
-  left: auto !important;
-
-  font-size: 104px !important;
-  line-height: 1 !important;
-  font-weight: 900 !important;
-  letter-spacing: -20px !important;
-
-  color: #000000 !important;
-  pointer-events: none !important;
-}
-
-@media (max-width: 640px) {
-  .ali-section__quote {
-    padding: 30px 22px 26px !important;
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    border-radius: 8px !important;
-    box-shadow: 6px 6px 0 #168cff !important;
-  }
-
-  .ali-section__quote-mark {
-    top: -42px !important;
-    right: -5px !important;
-    font-size: 78px !important;
-    letter-spacing: -15px !important;
-  }
-}
+  
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/styles/not-found.css ***!
   \**********************************************************************************************************************************************************************************************************************************************************************/

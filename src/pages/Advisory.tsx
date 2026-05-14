@@ -265,7 +265,7 @@ const Advisory = () => {
                 LETS_TALK
               </div>
 
-              <h2>Need a technology partner, not a vendor?</h2>
+              <h2>Need a technology partner?</h2>
 
               <p>
                 Book a strategic consultation. No pitch decks — just honest

@@ -37,7 +37,7 @@ const paths = [
     text: "Practical lessons on AI, software architecture, and building technology the right way.",
     href: "/education",
     icon: BookOpen,
-    label: "Insights",
+    label: "Education",
   },
 ];
 
